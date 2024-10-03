@@ -44,11 +44,11 @@ Resources:
       Protocol: HTTP
       Matcher:
         HttpCode: 200-302
-      HealthCheckIntervalSeconds: 10
+      HealthCheckIntervalSeconds: 30
       HealthCheckPath: "/"
       HealthCheckProtocol: HTTP
-      HealthCheckTimeoutSeconds: 5
-      HealthyThresholdCount: 3
+      HealthCheckTimeoutSeconds: 20
+      HealthyThresholdCount: 2
       TargetType: "ip"
       TargetGroupAttributes:
         - Key: deregistration_delay.timeout_seconds
