@@ -36,16 +36,17 @@ Resources:
       Family: !Sub '${pApp}-TaskDef'
       RequiresCompatibilities:
         - "FARGATE"
-      Memory: '4096'
-      Cpu: '1024'
+      Memory: '512'
+      Cpu: '256'
       NetworkMode: awsvpc
       ExecutionRoleArn: !Ref pTaskExecutionRole
       ContainerDefinitions:
         - Name: !Sub '${pApp}'
           Image: !Ref pApplicationImage
+          # Image: 992382764372.dkr.ecr.ap-southeast-2.amazonaws.com/dev-frontend-react-nginx-container:4KEePfn
           Essential: true
           Memory: 512 #2048
-          Cpu: 1024
+          Cpu: 256   #1024
           PortMappings:
             - HostPort: !Ref pAppPort
               Protocol: tcp
