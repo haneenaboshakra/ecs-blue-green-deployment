@@ -10,7 +10,7 @@
         "pRoute53HostedZoneId":"Z006683937BTLLFRE3HG0",
         "pDesiredCount":"1",
         "pCloudWatchAlarmFlag":"false",
-        "pMonitoringEmailAddress":"<haneen.a.shakra@gmail.com>",
+        "pMonitoringEmailAddress":"haneen.a.shakra@gmail.com",
         "pRoute53Domain":"dev.balanced.com.au",
         "pCertificateArn":"arn:aws:acm:ap-southeast-2:992382764372:certificate/b51a37ea-f1bb-41bf-a2df-465b57b857a1",
         "pTerminationTimeInMinutes":"10",
