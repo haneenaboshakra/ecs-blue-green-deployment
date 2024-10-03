@@ -15,7 +15,7 @@ phases:
   pre_build:
     commands:
       - echo Pre-build started on `date`
-      - cd ./client
+      - cd ../client
       - npm install --legacy-peer-deps
 
   build:
