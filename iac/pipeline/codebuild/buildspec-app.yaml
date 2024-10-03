@@ -27,7 +27,7 @@ artifacts:
   files:
     - iac/pipeline/client/build/**/*
     - iac/pipeline/codebuild/buildspec-container.yaml
-    - iac/pipeline/codebuild/Dockerfile
+    # - iac/pipeline/codebuild/Dockerfile
     # - codebuild/frontend-ecs-service-pipeline.yaml
     # - iac/pipeline/codebuild/appspec.yaml
     - iac/pipeline/client/public/*
