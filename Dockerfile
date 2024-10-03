@@ -19,10 +19,10 @@ RUN rm -rf /usr/share/nginx/html/*
 RUN amazon-ssm-agent &
 
 # Copy the React build output to Nginx's HTML directory
-COPY /client/build/ /usr/share/nginx/html
+COPY iac/pipeline/client/build/ /usr/share/nginx/html
 
 # Copy custom Nginx configuration if needed
-COPY /codebuild/nginx.conf /etc/nginx/nginx.conf
+COPY iac/pipeline/codebuild/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 8080
 

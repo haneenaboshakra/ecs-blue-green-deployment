@@ -25,16 +25,16 @@ phases:
 
 artifacts:
   files:
-    - client/build/**/*
-    - codebuild/buildspec-container.yaml
-    - codebuild/Dockerfile
+    - iac/pipeline/client/build/**/*
+    - iac/pipeline/codebuild/buildspec-container.yaml
+    - iac/pipeline/codebuild/Dockerfile
     # - codebuild/frontend-ecs-service-pipeline.yaml
-    - codebuild/appspec.yaml
-    - client/public/*
-    - client/src/*
-    - client/package.json
-    - client/package-lock.json
-    - codebuild/nginx.conf
+    - iac/pipeline/codebuild/appspec.yaml
+    - iac/pipeline/client/public/*
+    - iac/pipeline/client/src/*
+    - iac/pipeline/client/package.json
+    - iac/pipeline/client/package-lock.json
+    - iac/pipeline/codebuild/nginx.conf
 
 
 
