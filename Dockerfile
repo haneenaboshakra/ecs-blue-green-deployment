@@ -11,7 +11,7 @@ FROM public.ecr.aws/docker/library/nginx:1.26.1
 #     apt-get clean 
 
 # Install other dependencies
-RUN apt-get install -y vim
+# RUN apt-get install -y vim
 # Remove the default Nginx website
 RUN rm -rf /usr/share/nginx/html/*
 
