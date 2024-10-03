@@ -64,9 +64,10 @@ Resources:
       Conditions:
         - Field: path-pattern
           Values: 
-            - "/"
-            - "/hello/*"
-            - "hello*"
+            - "*"
+            # - "/"
+            # - "/hello/*"
+            # - "hello*"
       Actions:
         - TargetGroupArn: !Ref rEcsFargateTargetGroup
           Type: forward
