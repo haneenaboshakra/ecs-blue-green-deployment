@@ -3,12 +3,12 @@
 
 FROM public.ecr.aws/docker/library/nginx:1.26.1
 
-RUN apt-get update && \
-    apt-get install -y curl unzip && \
-    curl "https://s3.ap-southeast-2.amazonaws.com/amazon-ssm-ap-southeast-2/latest/debian_amd64/amazon-ssm-agent.deb" -o "amazon-ssm-agent.deb" && \
-    dpkg -i amazon-ssm-agent.deb && \
-    rm amazon-ssm-agent.deb  && \
-    apt-get clean 
+# RUN apt-get update && \
+#     apt-get install -y curl unzip && \
+#     curl "https://s3.ap-southeast-2.amazonaws.com/amazon-ssm-ap-southeast-2/latest/debian_amd64/amazon-ssm-agent.deb" -o "amazon-ssm-agent.deb" && \
+#     dpkg -i amazon-ssm-agent.deb && \
+#     rm amazon-ssm-agent.deb  && \
+#     apt-get clean 
 
 # Install other dependencies
 RUN apt-get install -y vim
@@ -16,7 +16,7 @@ RUN apt-get install -y vim
 RUN rm -rf /usr/share/nginx/html/*
 
 # Run SSM agent in the background 
-RUN amazon-ssm-agent &
+# RUN amazon-ssm-agent &
 
 # Copy the React build output to Nginx's HTML directory
 COPY iac/pipeline/client/build/ /usr/share/nginx/html

@@ -31,6 +31,7 @@ phases:
   build:
     commands:
       - echo Building the Docker image...
+
       - docker build --tag $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:${IMAGE_TAG}
       - IMAGE_URI=$REPOSITORY_URI:${IMAGE_TAG}
