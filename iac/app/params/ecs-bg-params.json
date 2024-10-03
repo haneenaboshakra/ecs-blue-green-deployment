@@ -1,0 +1,20 @@
+{
+    "Parameters" : {
+        "pApplicationName":"ecsfargate-sampleapp",
+        "pAppPort": "8080",
+        "pVpcId":"vpc-0328e388b42c783e3",
+        "pPrivateSubnetIdentifiera":"subnet-0ca3e84de65c1cfb9",
+        "pPrivateSubnetIdentifierb":"subnet-0544bdd95092ea82e",
+        "pPublicSubnetIdentifiera":"subnet-07135b7a05fa44db1",
+        "pPublicSubnetIdentifierb":"subnet-0030512a4a968242b",
+        "pRoute53HostedZoneId":"Z006683937BTLLFRE3HG0",
+        "pDesiredCount":"1",
+        "pCloudWatchAlarmFlag":"false",
+        "pMonitoringEmailAddress":"<haneen.a.shakra@gmail.com>",
+        "pRoute53Domain":"dev.balanced.com.au",
+        "pCertificateArn":"arn:aws:acm:ap-southeast-2:992382764372:certificate/b51a37ea-f1bb-41bf-a2df-465b57b857a1",
+        "pTerminationTimeInMinutes":"10",
+        "pDeploymentConfig":"CodeDeployDefault.ECSCanary10Percent5Minutes",
+        "pAppTestingExpectedString":"Welcome to the Hello World App"
+    }
+}

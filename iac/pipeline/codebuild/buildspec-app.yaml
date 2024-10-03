@@ -1,0 +1,70 @@
+# Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: MIT-0
+
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing Node.js and npm
+      - curl -fsSL https://deb.nodesource.com/setup_20.x | sudo bash - 
+      - sudo apt-get install -y nodejs
+      - apt-get install dialog apt-utils -y
+
+
+  pre_build:
+    commands:
+      - echo Pre-build started on `date`
+      - cd ./client
+      - npm install --legacy-peer-deps
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - npm run build
+
+artifacts:
+  files:
+    - client/build/**/*
+    - codebuild/buildspec-container.yaml
+    - codebuild/Dockerfile
+    # - codebuild/frontend-ecs-service-pipeline.yaml
+    - codebuild/appspec.yaml
+    - client/public/*
+    - client/src/*
+    - client/package.json
+    - client/package-lock.json
+    - codebuild/nginx.conf
+
+
+
+
+
+
+
+
+
+
+
+# phases:
+# #  install:
+# #    commands:
+
+#   build:
+#     commands:
+#       - export MAVEN_CLI_OPTS="--batch-mode --errors --fail-at-end --show-version"
+#       - echo Build started on `date`
+#       - echo ENV_APP_NAME:${ENV_APP_NAME}
+#       - mvn $MAVEN_CLI_OPTS clean verify install
+
+#   pre_build:
+#     commands:
+#       #- cat pom.xml |grep '<version>' |head -1 |sed 's/<version>//g' |sed 's/-SNAPSHOT<\/version>//g' |sed 's/ //g' > /tmp/app_version.txt
+#       - echo "${CODEBUILD_BUILD_ID}"
+ 
+
+# artifacts:
+#   files:
+#     - target/helloworld.war
+#     - iac/pipeline/codebuild/buildspec-container.yaml
+#     - Dockerfile
