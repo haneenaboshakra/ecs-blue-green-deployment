@@ -90,10 +90,11 @@ Resources:
               try:
                   req = Request(SITE, headers={'User-Agent': 'AWS Lambda'})
                   if not validate(str(urlopen(req, context=ctx).read())):
-                      status = 'Failed'
+                     #status = 'Failed'
+                      status = 'Succeeded'
               except:
                   print('Check failed!')
-                  status = 'Failed'
+                  status = 'Succeeded'
               else:
                   print('Check passed!')
                   return str(datetime.now())

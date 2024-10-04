@@ -1,0 +1,31 @@
+version: 0.2
+phases:
+  install:          
+    commands:
+      - ls
+      - pip install pyyaml
+  pre_build:
+    commands:
+      # Print the TASKDEF_ARN to check its value
+      - echo "${TASKDEF_ARN}"
+      # Run the Python script to generate appspec.yml for CodeDeploy
+      - echo "Updating appspec.yml..."
+      - python iac/code-deploy/scripts/update-appspec.py --taskArn ${TASKDEF_ARN} --hooksLambdaArn ${HOOKS_LAMBDA_ARN} --inputAppSpecFile 'iac/code-deploy/appspec.yml' --outputAppSpecFile '/tmp/appspec.yml'
+      
+      # Check the generated appspec.yml
+      - echo "Contents of /tmp/appspec.yml:"
+      - cat /tmp/appspec.yml
+
+      # Create task definition for CodeDeploy deployment
+      - echo "Describing Task Definition..."
+      - aws ecs describe-task-definition --task-definition ${TASKDEF_ARN} --region ap-southeast-2 --query taskDefinition > /tmp/taskdef.json || echo "Failed to describe task definition"
+
+      # Check the output of the describe command
+      - echo "Contents of /tmp/taskdef.json:"
+      - cat /tmp/taskdef.json
+
+artifacts:
+  files:
+    - /tmp/appspec.yml
+    - /tmp/taskdef.json
+  discard-paths: yes
