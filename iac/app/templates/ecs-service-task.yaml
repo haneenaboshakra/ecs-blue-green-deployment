@@ -62,6 +62,10 @@ Outputs:
   oTaskDefinitionArn:
     Description: rTaskDefinition Arn
     Value: !Ref rTaskDefinition
+    Export:
+      Name: oTaskDefinitionArn
   oContainerName:
     Description: Container Name
     Value: !Sub '${pApp}'
+    Export:
+      Name: oContainerName

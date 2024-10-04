@@ -114,3 +114,5 @@ Outputs:
   oAfterInstallHookLambdaArn:
     Description: AfterInstallHookLambda ARN
     Value: !GetAtt rAfterInstallHookLambda.Arn
+    Export:
+      Name: oAfterInstallHookLambdaArn
