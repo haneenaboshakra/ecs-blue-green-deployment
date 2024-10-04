@@ -494,7 +494,7 @@ Resources:
                 Version: "1"
               Configuration:
                 ProjectName: !Sub "${pApplicationName}-CodeDeployConfigBuild"
-                EnvironmentVariables: '[{"name": "TASKDEF_ARN", "value": "#{DeployInfraVariables.oTaskDefinitionArn}", "type": "PLAINTEXT"},{"name": "HOOKS_LAMBDA_ARN", "value": "#{DeployInfraVariables.oAfterInstallHookLambdaArn}", "type": "PLAINTEXT"}]'
+                EnvironmentVariables: '[{"name": "TASKDEF_ARN", "value": "/dev/infra/resources/ecs_fargate_task_definition", "type": "PARAMETER_STORE"},{"name": "HOOKS_LAMBDA_ARN", "value": "/dev/infra/resources/after_install_hook_lambda", "type": "PARAMETER_STORE"}]'
               InputArtifacts:
                 - Name: Source
               OutputArtifacts:

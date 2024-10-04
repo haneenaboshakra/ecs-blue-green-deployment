@@ -110,6 +110,16 @@ Resources:
           site_url: !Ref pAppURL
           page_expected_string: !Ref pAppTestingString
 
+  AfterInstallHookLambdaSSMParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name:  !Sub "/dev/infra/resources/after_install_hook_lambda"
+      Type: String
+      Value: !Ref rAfterInstallHookLambda
+      Description: rAfterInstallHookLambda
+      Tags:
+        Environment: dev
+
 Outputs:
   oAfterInstallHookLambdaArn:
     Description: AfterInstallHookLambda ARN

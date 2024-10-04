@@ -58,6 +58,17 @@ Resources:
               awslogs-group: !Ref pEcsServiceLogGroupArn
               awslogs-stream-prefix: !Sub '/${pApp}/ecs'
 
+  TaskDefinitionSSMParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name:  !Sub "/dev/infra/resources/ecs_fargate_task_definition"
+      Type: String
+      Value: !Ref rTaskDefinition
+      Description: dev ecs fargate task definition
+      Tags:
+        Environment: dev
+
+
 Outputs:
   oTaskDefinitionArn:
     Description: rTaskDefinition Arn
