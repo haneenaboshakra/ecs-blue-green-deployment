@@ -263,7 +263,7 @@ Resources:
   rApplicationBuild:
     Type: AWS::CodeBuild::Project
     Properties:
-      Name: !Sub ${pApplicationName}-appbuild
+      Name: !Sub ${pApplicationName}-appbuild 
       Description: !Sub "Project for ${pApplicationName} source build"
       ServiceRole: !GetAtt rCodeBuildServiceRole.Arn
       Artifacts:
